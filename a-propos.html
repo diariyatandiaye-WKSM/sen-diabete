@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - SEN'Diabète</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                <img src="https://i.postimg.cc/h4xvsywC/Logo-V2.png" alt="SEN'Diabète Logo" class="h-10 w-auto object-contain">
+                <span class="text-xl font-bold text-blue-900">SEN'Diabète</span>
+            </a>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+                <a href="index.html#solution" class="hover:text-blue-600 transition">Notre Solution</a>
+                <a href="index.html#comment" class="hover:text-blue-600 transition">Comment ça marche</a>
+                <a href="a-propos.html" class="text-blue-600 font-semibold transition">À propos</a>
+                <a href="confidentialite.html" class="hover:text-blue-600 transition">Confidentialité</a>
+            </div>
+            <button onclick="window.location.href='index.html'" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+                Nous contacter
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-16">
+        
+        <!-- En-tête -->
+        <div class="text-center mb-16">
+            <span class="text-emerald-600 font-semibold tracking-wide uppercase text-sm mb-4 block">Notre Histoire</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">L'expertise du terrain au service de la technologie.</h1>
+            <p class="text-xl text-blue-600 font-semibold italic">"Aux bons outils, les bons ouvriers."</p>
+        </div>
+
+        <!-- Article -->
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100 space-y-8 text-lg text-slate-600 leading-relaxed">
+            
+            <p>
+                Je suis <strong class="text-slate-900">infirmière avec plusieurs années d'expérience</strong>. Aujourd'hui installée au Sénégal, mon objectif est simple : apporter mon aide aux professionnels de santé de mon pays.
+            </p>
+
+            <p>
+                Avant de concevoir la moindre ligne de code pour <strong>SEN'Diabète</strong>, j'ai passé des mois à écouter, observer et comprendre l'écosystème sénégalais. J'ai fait des visites terrain, j'ai suivi l'actualité du système de santé, et surtout, j'ai échangé avec ceux qui sont en première ligne.
+            </p>
+
+            <!-- Bloc Verbatims -->
+            <div class="my-10 space-y-4">
+                <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Ce que les soignants m'ont confié :</p>
+                
+                <blockquote class="border-l-4 border-blue-500 pl-4 py-2 bg-slate-50 rounded-r-lg italic text-slate-700">
+                    « Je passe mes soirées à chercher les chiffres de mes patients dans WhatsApp. C'est épuisant. »
+                </blockquote>
+                
+                <blockquote class="border-l-4 border-blue-500 pl-4 py-2 bg-slate-50 rounded-r-lg italic text-slate-700">
+                    « Entre les photos de carnets illisibles et les appels, je n'ai plus de temps pour le soin. »
+                </blockquote>
+                
+                <blockquote class="border-l-4 border-blue-500 pl-4 py-2 bg-slate-50 rounded-r-lg italic text-slate-700">
+                    « J'ai l'impression d'être un standard téléphonique, pas un médecin. »
+                </blockquote>
+            </div>
+
+            <p>
+                C'est de ce constat qu'est né <strong>SEN'Diabète</strong>. L'outil a connu plusieurs versions. À chaque fois, je l'ai confronté à votre réalité pour qu'il <strong>colle parfaitement au contexte sénégalais</strong>.
+            </p>
+
+            <p>
+                Aujourd'hui, en tant que fondatrice, je vous propose une plateforme qui a été pensée <em>avec</em> vous, pour vous. Un outil qui respecte vos méthodes de travail, qui s'adapte à tous vos patients (même ceux sans smartphone), et qui vous redonne le contrôle de la data.
+            </p>
+
+            <div class="pt-8 mt-8 border-t border-slate-100 text-center">
+                <p class="text-2xl font-bold text-slate-900 mb-6">
+                    Parce que de bons soignants méritent de bons outils.
+                </p>
+                <a href="index.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">
+                    Découvrir la solution
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-8 text-center text-sm mt-auto">
+        <p>© 2026 SEN'Diabète - NINEA : 008948690</p>
+        <p class="mt-2 text-slate-400">Dakar, Sénégal</p>
+    </footer>
+
+</body>
+</html>
