@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Démo Espace Médecin - SEN'Diabète</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Ajout de Chart.js pour le graphique -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style> body { font-family: 'Inter', sans-serif; } </style>
@@ -22,15 +21,29 @@
             <a href="#" class="block px-4 py-2 bg-blue-600 rounded-lg text-sm font-medium">Tableau de bord</a>
             <a href="#" class="block px-4 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg text-sm font-medium">Mes Patients</a>
         </nav>
+        
+        <!-- Bouton Retour en bas de la Sidebar -->
+        <div class="p-4 border-t border-slate-800">
+            <a href="index.html" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition">
+                <span>←</span> Retour au site
+            </a>
+        </div>
     </aside>
 
     <!-- Main Content -->
     <div class="flex-1 flex flex-col h-screen overflow-hidden">
         <!-- Topbar -->
         <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-10">
-            <h2 class="text-lg font-semibold text-slate-800">Espace Médecin (Démo Interactive)</h2>
+            <div class="flex items-center gap-4">
+                <!-- BOUTON RETOUR AU SITE (Visible sur mobile et desktop) -->
+                <a href="index.html" class="flex items-center gap-2 bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-slate-200 transition">
+                    <span>←</span> Quitter la démo
+                </a>
+                <h2 class="text-lg font-semibold text-slate-800 hidden md:block">Espace Médecin (Démo Interactive)</h2>
+            </div>
+            
             <div class="flex items-center gap-3">
-                <span class="text-sm text-slate-500">Dr. Diariyata</span>
+                <span class="text-sm text-slate-500 hidden md:block">Dr. Diariyata</span>
                 <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">D</div>
             </div>
         </header>
@@ -38,38 +51,40 @@
         <!-- Dashboard Content -->
         <main class="flex-1 overflow-y-auto p-6">
             
-            <!-- Bouton Simulateur (Pour l'effet WOW) -->
-            <div class="mb-6 bg-blue-50 border border-blue-200 p-4 rounded-xl flex justify-between items-center">
+            <!-- Bandeau Mode Démo -->
+            <div class="mb-6 bg-blue-50 border border-blue-200 p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <h4 class="font-bold text-blue-900 text-sm">Mode Démonstration</h4>
                     <p class="text-xs text-blue-700">Cliquez pour simuler la réception d'un SMS d'un patient.</p>
                 </div>
-                <button onclick="simulateSMS()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 shadow-sm transition">
+                <button onclick="simulateSMS()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 shadow-sm transition w-full md:w-auto">
                     📩 Simuler un SMS
                 </button>
             </div>
 
             <!-- Table -->
             <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="p-4 border-b border-slate-100 flex justify-between items-center">
+                <div class="p-4 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
                     <h3 class="font-bold text-slate-800">Dernières mesures reçues</h3>
-                    <input type="text" id="searchInput" placeholder="Rechercher un patient..." class="px-3 py-1 border border-slate-300 rounded-md text-sm focus:outline-none focus:border-blue-500">
+                    <input type="text" id="searchInput" placeholder="Rechercher un patient..." class="px-3 py-1 border border-slate-300 rounded-md text-sm focus:outline-none focus:border-blue-500 w-full md:w-64">
                 </div>
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-50 text-slate-500 border-b border-slate-100">
-                        <tr>
-                            <th class="px-4 py-3 font-medium">Patient</th>
-                            <th class="px-4 py-3 font-medium">Téléphone</th>
-                            <th class="px-4 py-3 font-medium">Type</th>
-                            <th class="px-4 py-3 font-medium">Valeur</th>
-                            <th class="px-4 py-3 font-medium">Date</th>
-                            <th class="px-4 py-3 font-medium">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <!-- Données injectées par JS -->
-                    </tbody>
-                </table>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 text-slate-500 border-b border-slate-100">
+                            <tr>
+                                <th class="px-4 py-3 font-medium">Patient</th>
+                                <th class="px-4 py-3 font-medium">Téléphone</th>
+                                <th class="px-4 py-3 font-medium">Type</th>
+                                <th class="px-4 py-3 font-medium">Valeur</th>
+                                <th class="px-4 py-3 font-medium">Date</th>
+                                <th class="px-4 py-3 font-medium">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Données injectées par JS -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
@@ -86,7 +101,7 @@
                 <canvas id="evolutionChart"></canvas>
             </div>
 
-            <div class="flex justify-end gap-3 mt-6">
+            <div class="flex flex-col md:flex-row justify-end gap-3 mt-6">
                 <button onclick="alert('Dans la vraie version, cela génère un PDF du dossier médical complet à imprimer pour la consultation.')" class="bg-slate-100 text-slate-700 px-5 py-2 rounded-lg font-semibold hover:bg-slate-200 transition">
                     📄 Exporter le dossier (PDF)
                 </button>
@@ -98,32 +113,26 @@
     </div>
 
     <script>
-        // Données fictives (Mock Data) - Basées sur les normes sénégalaises
-        // Norme: 0.70 - 1.10 g/L (à jeun)
-        // Hypo: < 0.70 | Hyper: >= 1.26 (Diabète)
         let mockData = [
-            { id: 1, name: "Jean Test", phone: "77 000 00 01", type: "Glycémie", value: "1.35", date: "Aujourd'hui, 08:30", isAlert: true }, // Hyperglycémie
-            { id: 2, name: "Awa Diop", phone: "77 000 00 02", type: "Glycémie", value: "0.95", date: "Aujourd'hui, 07:15", isAlert: false }, // Normal
-            { id: 3, name: "Moussa Fall", phone: "77 000 00 03", type: "Tension", value: "140/90", date: "Hier, 19:00", isAlert: true }, // Tension élevée
-            { id: 4, name: "Awa Diop", phone: "77 000 00 02", type: "Glycémie", value: "0.65", date: "Hier, 08:00", isAlert: true }, // Hypoglycémie
-            { id: 5, name: "Jean Test", phone: "77 000 00 01", type: "Glycémie", value: "1.05", date: "Avant-hier, 08:15", isAlert: false } // Normal
+            { id: 1, name: "Jean Test", phone: "77 000 00 01", type: "Glycémie", value: "1.35", date: "Aujourd'hui, 08:30", isAlert: true },
+            { id: 2, name: "Awa Diop", phone: "77 000 00 02", type: "Glycémie", value: "0.95", date: "Aujourd'hui, 07:15", isAlert: false },
+            { id: 3, name: "Moussa Fall", phone: "77 000 00 03", type: "Tension", value: "140/90", date: "Hier, 19:00", isAlert: true },
+            { id: 4, name: "Awa Diop", phone: "77 000 00 02", type: "Glycémie", value: "0.65", date: "Hier, 08:00", isAlert: true },
+            { id: 5, name: "Jean Test", phone: "77 000 00 01", type: "Glycémie", value: "1.05", date: "Avant-hier, 08:15", isAlert: false }
         ];
 
         const tableBody = document.getElementById('tableBody');
         const searchInput = document.getElementById('searchInput');
         let chartInstance = null;
 
-        // Fonction d'affichage du tableau
         function renderTable(data) {
             tableBody.innerHTML = '';
             data.forEach(row => {
-                // Alerte si glycémie hors norme (hypo < 0.70 ou hyper > 1.26) ou tension élevée
                 let isAlert = false;
                 if (row.type === 'Glycémie') {
                     const val = parseFloat(row.value);
                     isAlert = (val < 0.70 || val >= 1.26);
                 } else if (row.type === 'Tension') {
-                    // On considère alerte si la tension dépasse 140/90
                     isAlert = row.value.includes('140') || row.value.includes('150') || row.value.includes('160');
                 }
 
@@ -145,14 +154,12 @@
             });
         }
 
-        // Ouvrir le dossier patient (avec le graphique)
         function openPatientFile(name, phone, type) {
             document.getElementById('modalPatientName').innerText = name;
             document.getElementById('modalPatientPhone').innerText = "Tél : " + phone;
             document.getElementById('patientModal').classList.remove('hidden');
 
             const ctx = document.getElementById('evolutionChart').getContext('2d');
-            
             if (chartInstance) { chartInstance.destroy(); }
 
             const isTension = type === 'Tension';
@@ -163,19 +170,17 @@
                     labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
                     datasets: [{
                         label: isTension ? 'Tension Systolique (mmHg)' : 'Glycémie (g/L)',
-                        // Données fictives réalistes pour la démo
                         data: isTension ? [130, 135, 145, 140, 138, 140] : [0.90, 1.10, 0.85, 1.30, 1.15, 1.05],
                         borderColor: '#2563eb', 
                         backgroundColor: 'rgba(37, 99, 235, 0.1)',
                         tension: 0.4,
                         fill: true,
                         pointBackgroundColor: function(context) {
-                            // Coloration des points selon les normes
                             const value = context.raw;
                             if (isTension) {
-                                return value > 140 ? '#ef4444' : '#10b981'; // Rouge si >140, vert sinon
+                                return value > 140 ? '#ef4444' : '#10b981';
                             } else {
-                                return (value < 0.70 || value >= 1.26) ? '#ef4444' : '#10b981'; // Rouge si hors norme
+                                return (value < 0.70 || value >= 1.26) ? '#ef4444' : '#10b981';
                             }
                         },
                         pointRadius: 6,
@@ -192,9 +197,7 @@
                             callbacks: {
                                 label: function(context) {
                                     let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
+                                    if (label) { label += ': '; }
                                     if (context.parsed.y !== null) {
                                         label += context.parsed.y + (isTension ? ' mmHg' : ' g/L');
                                     }
@@ -214,7 +217,6 @@
             });
         }
 
-        // Simuler la réception d'un SMS (avec une glycémie aléatoire)
         function simulateSMS() {
             const randomGlycemies = ["0.85", "1.15", "0.65", "1.35", "0.95", "1.40"];
             const randomValue = randomGlycemies[Math.floor(Math.random() * randomGlycemies.length)];
@@ -231,11 +233,9 @@
             mockData.unshift(newRow);
             renderTable(mockData);
             
-            // Notification visuelle
             alert(`📩 Nouveau SMS reçu ! Glycémie : ${randomValue} g/L`);
         }
 
-        // Recherche
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredData = mockData.filter(row => 
@@ -244,7 +244,6 @@
             renderTable(filteredData);
         });
 
-        // Initialisation
         renderTable(mockData);
     </script>
 </body>
