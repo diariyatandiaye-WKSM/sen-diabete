@@ -24,7 +24,8 @@
                 <a href="#comment" class="hover:text-blue-600 transition">Comment ça marche</a>
                 <a href="confidentialite.html" class="hover:text-blue-600 transition">Confidentialité</a>
             </div>
-            <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+            <!-- Bouton Nous contacter (Audience: Clients) -->
+            <button onclick="openModal('contact')" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
                 Nous contacter
             </button>
         </div>
@@ -42,7 +43,8 @@
         </p>
         <div class="flex justify-center gap-4">
             <a href="#solution" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">Découvrir la solution</a>
-            <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition">
+            <!-- Bouton Espace Partenaires (Audience: Bailleurs/ONG) -->
+            <button onclick="openModal('partenaire')" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition">
                 Espace Partenaires
             </button>
         </div>
@@ -117,16 +119,18 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- MODALE PARTENAIRES (CONTACT & WHATSAPP)    -->
+    <!-- MODALE UNIQUE (Titre et texte dynamiques)  -->
     <!-- ========================================== -->
-    <div id="partnerModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
+    <div id="contactModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
-            <button type="button" onclick="document.getElementById('partnerModal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">✕</button>
+            <button type="button" onclick="document.getElementById('contactModal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">✕</button>
             
-            <h3 class="text-2xl font-bold text-blue-900 mb-2">Devenir Partenaire</h3>
-            <p class="text-sm text-slate-600 mb-6">Vous êtes une mutuelle, une ONG ou un centre de santé ? Discutons de votre projet.</p>
+            <!-- Titre et description dynamiques -->
+            <h3 id="modal-title" class="text-2xl font-bold text-blue-900 mb-2"></h3>
+            <p id="modal-desc" class="text-sm text-slate-600 mb-6"></p>
 
-            <a href="https://wa.me/221771657172?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20un%20partenariat%20avec%20SEN'Diab%C3%A8te." target="_blank" class="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition mb-4 shadow-sm">
+            <!-- Option WhatsApp -->
+            <a href="https://wa.me/221771657172?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20SEN'Diab%C3%A8te." target="_blank" class="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition mb-4 shadow-sm">
                 💬 Discuter sur WhatsApp
             </a>
 
@@ -136,7 +140,7 @@
                 <div class="flex-1 h-px bg-slate-200"></div>
             </div>
 
-            <!-- Le formulaire appelle directement la fonction handleFormSubmit -->
+            <!-- Formulaire -->
             <form id="contact-form" action="https://formspree.io/f/maeezwwk" method="POST" onsubmit="return handleFormSubmit(event)" class="space-y-4">
                 <div>
                     <input type="text" name="nom" placeholder="Votre nom / Structure" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm">
@@ -148,70 +152,78 @@
                     <textarea name="message" placeholder="Votre message..." rows="3" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"></textarea>
                 </div>
                 <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm">
-                    Envoyer la demande
+                    Envoyer le message
                 </button>
             </form>
         </div>
     </div>
 
     <!-- ========================================== -->
-    <!-- MODALE DE SUCCÈS (AFFICHÉE APRÈS ENVOI)    -->
+    <!-- MODALE DE SUCCÈS                           -->
     <!-- ========================================== -->
     <div id="successModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative shadow-2xl">
             <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">✓</div>
             <h3 class="text-2xl font-bold text-slate-900 mb-2">Message envoyé !</h3>
-            <p class="text-sm text-slate-600 mb-6">Merci pour votre intérêt. Nous reviendrons vers vous dans les plus brefs délais.</p>
+            <p class="text-sm text-slate-600 mb-6">Merci pour votre message. Nous reviendrons vers vous dans les plus brefs délais.</p>
             <button type="button" onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
                 Fermer
             </button>
         </div>
     </div>
 
-    <!-- Script de gestion de l'envoi -->
     <script>
+        // Fonction pour ouvrir la modale avec le bon texte
+        function openModal(type) {
+            const title = document.getElementById('modal-title');
+            const desc = document.getElementById('modal-desc');
+
+            if (type === 'partenaire') {
+                title.innerText = "Devenir Partenaire";
+                desc.innerText = "Vous êtes une mutuelle, une ONG ou un programme de santé ? Discutons des synergies possibles pour améliorer le suivi des patients.";
+            } else if (type === 'contact') {
+                title.innerText = "Nous sommes à votre écoute";
+                desc.innerText = "Vous êtes un médecin, un établissement de santé ou un patient ? Une question ? N'hésitez pas à nous écrire.";
+            }
+
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        // Fonction pour gérer l'envoi du formulaire
         async function handleFormSubmit(event) {
-            // 1. Empêcher la redirection par défaut
             event.preventDefault();
 
             const form = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
             const originalText = submitBtn.innerText;
 
-            // 2. Changer le bouton pour indiquer le chargement
             submitBtn.innerText = 'Envoi en cours...';
             submitBtn.disabled = true;
 
-            // 3. Préparer les données
             const data = new FormData(form);
 
             try {
-                // 4. Envoyer via AJAX (Fetch)
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
-                // 5. Gérer la réponse
                 if (response.ok) {
-                    form.reset(); // Vider le formulaire
-                    document.getElementById('partnerModal').classList.add('hidden'); // Cacher le formulaire
-                    document.getElementById('successModal').classList.remove('hidden'); // Afficher le succès
+                    form.reset();
+                    document.getElementById('contactModal').classList.add('hidden');
+                    document.getElementById('successModal').classList.remove('hidden');
                 } else {
                     alert("Oups ! Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
                 }
             } catch (error) {
                 alert("Impossible de contacter le serveur. Vérifiez votre connexion internet.");
             } finally {
-                // 6. Remettre le bouton à son état normal
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
             }
             
-            return false; // Sécurité supplémentaire pour empêcher la soumission classique
+            return false;
         }
     </script>
 
