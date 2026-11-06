@@ -24,7 +24,6 @@
                 <a href="#comment" class="hover:text-blue-600 transition">Comment ça marche</a>
                 <a href="confidentialite.html" class="hover:text-blue-600 transition">Confidentialité</a>
             </div>
-            <!-- Bouton Nous contacter de la navbar -->
             <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
                 Nous contacter
             </button>
@@ -41,12 +40,8 @@
         <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
             SEN'Diabète permet aux patients d'envoyer leurs constantes vitales par simple SMS ou code USSD, et aux médecins de les suivre sur une plateforme sécurisée.
         </p>
-        
-        <!-- LES DEUX BOUTONS DU HERO -->
         <div class="flex justify-center gap-4">
             <a href="#solution" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">Découvrir la solution</a>
-            
-            <!-- Bouton Espace Partenaires -->
             <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition">
                 Espace Partenaires
             </button>
@@ -60,31 +55,19 @@
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Une technologie inclusive et souveraine</h2>
                 <p class="text-slate-600">Conçue pour la réalité du terrain sénégalais.</p>
             </div>
-            
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Carte 1 -->
                 <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        💬
-                    </div>
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">💬</div>
                     <h3 class="text-xl font-bold mb-3">SMS & USSD</h3>
                     <p class="text-slate-600 text-sm">Aucun besoin d'internet ou de smartphone. Une technologie accessible à tous, partout au Sénégal.</p>
                 </div>
-                
-                <!-- Carte 2 -->
                 <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        🛡️
-                    </div>
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">🛡️</div>
                     <h3 class="text-xl font-bold mb-3">Données Souveraines</h3>
                     <p class="text-slate-600 text-sm">Hébergement 100% sécurisé au Sénégal, en totale conformité avec la Commission de Protection des Données (CDP).</p>
                 </div>
-
-                <!-- Carte 3 -->
                 <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">
-                        🩺
-                    </div>
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 text-2xl">🩺</div>
                     <h3 class="text-xl font-bold mb-3">Suivi Médical</h3>
                     <p class="text-slate-600 text-sm">Les médecins accèdent à un tableau de bord clair pour suivre l'évolution des patients et ajuster les traitements.</p>
                 </div>
@@ -134,19 +117,15 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- MODALE / BOÎTE DE DIALOGUE PARTENAIRES     -->
+    <!-- MODALE PARTENAIRES (CONTACT & WHATSAPP)    -->
     <!-- ========================================== -->
     <div id="partnerModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
-            <!-- Bouton Fermer -->
-            <button onclick="document.getElementById('partnerModal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">
-                ✕
-            </button>
+            <button onclick="document.getElementById('partnerModal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">✕</button>
             
             <h3 class="text-2xl font-bold text-blue-900 mb-2">Devenir Partenaire</h3>
             <p class="text-sm text-slate-600 mb-6">Vous êtes une mutuelle, une ONG ou un centre de santé ? Discutons de votre projet.</p>
 
-            <!-- Option WhatsApp -->
             <a href="https://wa.me/221771657172?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20un%20partenariat%20avec%20SEN'Diab%C3%A8te." target="_blank" class="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition mb-4 shadow-sm">
                 💬 Discuter sur WhatsApp
             </a>
@@ -157,8 +136,8 @@
                 <div class="flex-1 h-px bg-slate-200"></div>
             </div>
 
-            <!-- Formulaire de contact (Formspree intégré) -->
-            <form action="https://formspree.io/f/maeezwwk" method="POST" class="space-y-4">
+            <!-- Formulaire avec un ID pour être intercepté par le JavaScript -->
+            <form id="contact-form" action="https://formspree.io/f/maeezwwk" method="POST" class="space-y-4">
                 <div>
                     <input type="text" name="nom" placeholder="Votre nom / Structure" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm">
                 </div>
@@ -168,12 +147,68 @@
                 <div>
                     <textarea name="message" placeholder="Votre message..." rows="3" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm">
+                <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm">
                     Envoyer la demande
                 </button>
             </form>
         </div>
     </div>
+
+    <!-- ========================================== -->
+    <!-- MODALE DE SUCCÈS (AFFICHÉE APRÈS ENVOI)    -->
+    <!-- ========================================== -->
+    <div id="successModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center relative shadow-2xl">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">✓</div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Message envoyé !</h3>
+            <p class="text-sm text-slate-600 mb-6">Merci pour votre intérêt. Nous reviendrons vers vous dans les plus brefs délais.</p>
+            <button onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                Fermer
+            </button>
+        </div>
+    </div>
+
+    <!-- Script pour intercepter l'envoi et afficher la modale -->
+    <script>
+        const form = document.getElementById('contact-form');
+        const successModal = document.getElementById('successModal');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Empêche la redirection vers Formspree
+
+            // On désactive le bouton pour éviter les doubles envois
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.reset(); // On vide le formulaire
+                    document.getElementById('partnerModal').classList.add('hidden'); // On ferme la modale de contact
+                    successModal.classList.remove('hidden'); // On affiche la modale de succès
+                } else {
+                    alert("Oups ! Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+                }
+            } catch (error) {
+                alert("Impossible de contacter le serveur. Vérifiez votre connexion internet.");
+            } finally {
+                // On remet le bouton dans son état initial
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 
 </body>
 </html>
