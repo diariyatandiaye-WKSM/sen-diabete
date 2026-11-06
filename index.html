@@ -126,6 +126,24 @@
                 <a href="confidentialite.html" class="text-emerald-400 hover:text-emerald-300 underline">Politique de Confidentialité</a>
             </div>
         </div>
+        <!-- Section Newsletter -->
+<section class="bg-slate-100 py-16 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Restez informé de nos avancées</h2>
+        <p class="text-slate-600 mb-6">Recevez nos actualités sur le suivi du diabète et de l'hypertension au Sénégal.</p>
+        
+        <!-- REMPLACEZ L'URL PAR UN TROISIÈME FORMSPREE OU UTILISEZ LE MÊME AVEC UN CHAMP CACHÉ -->
+        <form action="https://formspree.io/f/maeezwwk" method="POST" class="flex flex-col sm:flex-row justify-center gap-3 max-w-lg mx-auto">
+            <!-- Champ caché pour identifier que c'est une newsletter -->
+            <input type="hidden" name="type" value="Newsletter">
+            <input type="email" name="email" placeholder="Votre adresse email" required class="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-500 flex-grow text-sm">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm text-sm">
+                S'abonner
+            </button>
+        </form>
+        <p class="text-xs text-slate-400 mt-4">Nous respectons votre vie privée. Pas de spam.</p>
+    </div>
+</section>
     </footer>
 
     <!-- ========================================== -->
