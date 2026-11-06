@@ -13,10 +13,9 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <!-- REMPLACEZ LE LIEN CI-DESSOUS PAR VOTRE "LIEN DIRECT" POSTIMAGES -->
                 <img src="https://i.postimg.cc/h4xvsywC/Logo-V2.png" alt="SEN'Diabète Logo" class="h-10 w-auto object-contain">
                 <span class="text-xl font-bold text-blue-900">SEN'Diabète</span>
             </div>
@@ -25,7 +24,10 @@
                 <a href="#comment" class="hover:text-blue-600 transition">Comment ça marche</a>
                 <a href="confidentialite.html" class="hover:text-blue-600 transition">Confidentialité</a>
             </div>
-            <a href="mailto:diariyata@sen-diabete.com" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">Nous contacter</a>
+            <!-- Bouton Nous contacter de la navbar -->
+            <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+                Nous contacter
+            </button>
         </div>
     </nav>
 
@@ -39,9 +41,15 @@
         <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
             SEN'Diabète permet aux patients d'envoyer leurs constantes vitales par simple SMS ou code USSD, et aux médecins de les suivre sur une plateforme sécurisée.
         </p>
+        
+        <!-- LES DEUX BOUTONS DU HERO -->
         <div class="flex justify-center gap-4">
             <a href="#solution" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">Découvrir la solution</a>
-            <a href="mailto:diariyata@sen-diabete.com" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition">Espace Partenaires</a>
+            
+            <!-- 👉 C'EST ICI LE BOUTON ESPACE PARTENAIRES 👈 -->
+            <button onclick="document.getElementById('partnerModal').classList.remove('hidden')" class="bg-white text-blue-600 border border-blue-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition">
+                Espace Partenaires
+            </button>
         </div>
     </header>
 
@@ -84,6 +92,27 @@
         </div>
     </section>
 
+    <!-- Section Comment ça marche (Raccourcie pour l'exemple) -->
+    <section id="comment" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-10">Simple comme un SMS</h2>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1">
+                    <div class="text-blue-600 font-bold text-2xl mb-2">1</div>
+                    <p class="text-sm text-slate-600">Le patient envoie <strong>"G 1.20"</strong> ou <strong>"T 140/90"</strong> par SMS.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1">
+                    <div class="text-blue-600 font-bold text-2xl mb-2">2</div>
+                    <p class="text-sm text-slate-600">La plateforme enregistre la donnée de façon sécurisée.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex-1">
+                    <div class="text-blue-600 font-bold text-2xl mb-2">3</div>
+                    <p class="text-sm text-slate-600">Le médecin consulte l'historique sur son tableau de bord.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300 py-12">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -103,6 +132,49 @@
             </div>
         </div>
     </footer>
+
+    <!-- ========================================== -->
+    <!-- MODALE / BOÎTE DE DIALOGUE PARTENAIRES     -->
+    <!-- ========================================== -->
+    <div id="partnerModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl">
+            <!-- Bouton Fermer -->
+            <button onclick="document.getElementById('partnerModal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 font-bold text-xl">
+                ✕
+            </button>
+            
+            <h3 class="text-2xl font-bold text-blue-900 mb-2">Devenir Partenaire</h3>
+            <p class="text-sm text-slate-600 mb-6">Vous êtes une mutuelle, une ONG ou un centre de santé ? Discutons de votre projet.</p>
+
+            <!-- Option WhatsApp -->
+            <a href="https://wa.me/221771657172?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20un%20partenariat%20avec%20SEN'Diab%C3%A8te." target="_blank" class="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition mb-4 shadow-sm">
+                💬 Discuter sur WhatsApp
+            </a>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="flex-1 h-px bg-slate-200"></div>
+                <span class="text-xs text-slate-400 font-medium">OU</span>
+                <div class="flex-1 h-px bg-slate-200"></div>
+            </div>
+
+            <!-- Formulaire de contact -->
+            <!-- REMPLACEZ L'URL CI-DESSOUS PAR VOTRE URL FORMSPREE (ex: https://formspree.io/f/xbjnqwer) -->
+            <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST" class="space-y-4">
+                <div>
+                    <input type="text" name="nom" placeholder="Votre nom / Structure" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Votre email professionnel" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm">
+                </div>
+                <div>
+                    <textarea name="message" placeholder="Votre message..." rows="3" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-sm">
+                    Envoyer la demande
+                </button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
